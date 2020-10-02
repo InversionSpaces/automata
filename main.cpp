@@ -27,6 +27,8 @@ int main(int argc, char* argv[]) {
             return 0;
         else if (command == "determine")
             a = a.determinized();
+        else if (command == "fullify")
+            a = a.fullified();
         else if (command == "inverse")
             a = a.inversed();
         else if (command == "minimize")
