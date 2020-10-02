@@ -28,7 +28,7 @@ struct Transition {
 
 class Automata {
 private:
-    const int start = 0;
+    int start = 0;
     set<char> alphabet;
     vector<Transition> transitions;
     set<int> ends;
