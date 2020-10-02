@@ -24,6 +24,10 @@ make
 - minimize
 - exit
 
+## Agreements
+Note that user must verify input for commands, otherwise their results would be incorrect.
+For example, minimization of not Full DFA produces unpredictable output.
+
 # Automata file structure
 ```
 [Number of transitions]
