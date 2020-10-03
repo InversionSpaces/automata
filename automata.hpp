@@ -196,25 +196,25 @@ public:
         for (const auto& trans: transitions)
             next.insert({{trans.from, trans.guard}, trans.to});
 
-        for (;;) {
-            /* Map sequence of transitions to groups to group */
-            map<vector<int>, int> trans2group;
+        for (int i = 0; i < states.size(); ++i) {
+            /* Map signature to group */
+            map<vector<int>, int> sign2group;
             /* Map state to its new group */
             vector<int> new_group(states.size());
             int new_group_count = 0;
 
             /* Generate new groups */
             for (const auto& state: states) {
-                vector<int> trans;
+                vector<int> sign = {group.at(state)};
                 for (const auto& guard: alphabet)
-                    trans.push_back(
+                    sign.push_back(
                         group.at(next.at({state, guard}))
                     );
 
-                if (!trans2group.count(trans))
-                    trans2group.insert({trans, new_group_count++});
+                if (!sign2group.count(sign))
+                    sign2group.insert({sign, new_group_count++});
 
-                const int& group_id = trans2group.at(trans);
+                const int& group_id = sign2group.at(sign);
                 new_group.at(state) = group_id;
             }
 
