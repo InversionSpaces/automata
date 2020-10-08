@@ -39,4 +39,10 @@ For example, minimization of not Full DFA produces unpredictable output.
 [Number of end states]
 [List of end states]
 ```
-See `test` file.
+See `example` file.
+
+# Running tests
+```
+make tests
+./tests
+```
