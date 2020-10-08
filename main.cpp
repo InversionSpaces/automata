@@ -5,6 +5,7 @@
 #include "automata.hpp"
 
 using namespace std;
+using namespace automata;
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {

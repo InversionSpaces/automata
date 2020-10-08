@@ -8,6 +8,8 @@
 #include <utility>
 #include <algorithm>
 
+namespace automata {
+
 using std::vector;
 using std::set;
 using std::map;
@@ -19,7 +21,7 @@ struct Transition {
     const char guard;
     const int to;
 
-    bool operator==(const Transition& other) {
+    bool operator==(const Transition& other) const {
         return  (from == other.from) &&
                 (guard == other.guard) &&
                 (to == other.to);
@@ -246,7 +248,9 @@ public:
     }
 };
 
-std::istream& operator>>(std::istream& in, Automata& automata) {
+} // namespace automata
+
+std::istream& operator>>(std::istream& in, automata::Automata& automata) {
     int transitions_count = 0;
     in >> transitions_count;
 
@@ -269,7 +273,7 @@ std::istream& operator>>(std::istream& in, Automata& automata) {
     return in;
 }
 
-std::ostream& operator<<(std::ostream& out, const Automata& automata) {
+std::ostream& operator<<(std::ostream& out, const automata::Automata& automata) {
     const auto& transitions = automata.get_transitions();
     out << transitions.size() << "\n";
     for (const auto& trans: transitions)
